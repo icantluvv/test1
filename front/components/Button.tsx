@@ -6,9 +6,10 @@ import TextComponent from "./TextComponent"
 interface ButtonProps {
   text: string
   type: string
+  onClick?: () => void // Добавляем обработчик нажатия
 }
 
-const Button = ({ text, type }: ButtonProps) => {
+const Button = ({ text, type, onClick }: ButtonProps) => {
   const router = useRouter()
 
   function goToContactPage() {
@@ -45,13 +46,13 @@ const Button = ({ text, type }: ButtonProps) => {
         <MUIButton
           variant="contained"
           color="primary"
-          onClick={goToContactPage}
+          onClick={onClick} // Используем переданный обработчик
           sx={{
             borderRadius: "10px",
             backgroundColor: "#2C2C2C",
             padding: "0rem 1rem",
             "@media (max-width: 1024px)": {
-              padding: "0rem rem"
+              padding: "0rem 0rem"
             },
             "@media (max-width: 768px)": {
               padding: "0em 0.4rem"

@@ -35,59 +35,69 @@ const Contacts = () => {
     email: "",
     message: ""
   })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     console.log(formData)
+    setIsSubmitted(true)
   }
 
   return (
     <ContactsPage>
-      <TextComponent text={"Only CTA on the page"} type={"h1"} />
-      <Form onSubmit={handleSubmit}>
-        <TextField
-          label="Name"
-          name="name"
-          variant="outlined"
-          fullWidth
-          value={formData.name}
-          onChange={handleChange}
-          InputLabelProps={{
-            shrink: true // Это заставит лейбл всегда оставаться наверху
-          }}
-        />
-        <TextField
-          label="Email"
-          name="email"
-          type="email"
-          variant="outlined"
-          fullWidth
-          value={formData.email}
-          onChange={handleChange}
-          InputLabelProps={{
-            shrink: true // Лейбл всегда сверху
-          }}
-        />
-        <TextField
-          label="Message"
-          name="message"
-          variant="outlined"
-          multiline
-          rows={4}
-          fullWidth
-          value={formData.message}
-          onChange={handleChange}
-          InputLabelProps={{
-            shrink: true // Лейбл всегда сверху
-          }}
-        />
-        <Button text={"Submit"} type={"submit"} />
-      </Form>
+      {!isSubmitted ? (
+        <>
+          <TextComponent text={"Only CTA on the page"} type={"h1"} />
+          <Form onSubmit={handleSubmit}>
+            <TextField
+              label="Name"
+              name="name"
+              variant="outlined"
+              fullWidth
+              value={formData.name}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              variant="outlined"
+              fullWidth
+              value={formData.email}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+            <TextField
+              label="Message"
+              name="message"
+              variant="outlined"
+              multiline
+              rows={4}
+              fullWidth
+              value={formData.message}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+            <Button text={"Submit"} type={"submit"} onClick={handleSubmit} />{" "}
+            {/* Передача обработчика */}
+          </Form>
+        </>
+      ) : (
+        <TextComponent text={"Thank you for your message!"} type={"h2"} />
+      )}
     </ContactsPage>
   )
 }
