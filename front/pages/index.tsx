@@ -60,12 +60,11 @@ const VideoContainer = styled.div`
   }
 `
 
-const BannerVideo = styled.div`
+const BannerVideo = styled.iframe`
   width: 100%;
   height: 100%;
   min-height: 40vh;
-
-  background: ${({ theme }) => theme.colors.darkGray};
+  border: none; /* Убираем рамку */
 
   @media (max-width: ${breakpoints.mobile}) {
     min-height: 25vh;
@@ -147,7 +146,11 @@ export default function Home() {
           {/* Banner Text */}
 
           <VideoContainer>
-            <BannerVideo></BannerVideo>
+            <BannerVideo
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></BannerVideo>
           </VideoContainer>
         </BannerSection>
 
