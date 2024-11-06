@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import TextComponent from "./TextComponent"
 
 const breakpoints = {
   mobile: "768px",
@@ -21,17 +20,18 @@ const CardComponent = styled.div`
     text-align: center;
   }
 `
+const CardText = styled.p`
+  color: ${({ theme }) => theme.colors.darkGray};
+`
 
 const Card = () => {
   return (
     <CardComponent>
-      <TextComponent text={"Title"} type={"h2"}></TextComponent>
-      <TextComponent
-        text={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum"
-        }
-        type={"p-light"}
-      ></TextComponent>
+      <h2>Title</h2>
+      <CardText>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis,
+        leo et condimentum
+      </CardText>
     </CardComponent>
   )
 }

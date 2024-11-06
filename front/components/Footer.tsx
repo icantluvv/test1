@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import TextComponent from "./TextComponent"
 
 const FooterComponent = styled.footer`
-  height: 20vh;
+  height: 7vh;
   width: 100%;
+  position: fixed;
+  bottom: 0;
   background: white;
   display: flex;
   align-items: center;
@@ -15,7 +16,7 @@ const FooterComponent = styled.footer`
 const Footer = () => {
   return (
     <FooterComponent>
-      <TextComponent text={"Some Company 2024"} type={"h2"}></TextComponent>
+      <h2>Some Company 2024</h2>
     </FooterComponent>
   )
 }

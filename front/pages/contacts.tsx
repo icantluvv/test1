@@ -1,18 +1,26 @@
 import TextComponent from "@/components/TextComponent"
 import React, { useState } from "react"
 import styled from "styled-components"
-import { TextField } from "@mui/material"
+import { Alert, TextField } from "@mui/material"
 import Button from "@/components/Button"
+import SendMessage from "@/services/SendMessage"
 
 const ContactsPage = styled.main`
-  min-height: 80vh;
-  padding-top: 10vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.colors.lightGray};
+
+  @media (max-width: 1024px) {
+    height: 100vh;
+    padding-bottom: 7vh;
+    padding-top: 8vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
 `
 
 const Form = styled.form`
@@ -27,6 +35,21 @@ const Form = styled.form`
   flex-direction: column;
   gap: 2rem;
   width: 20%;
+
+  @media (max-width: 767px) {
+    min-width: 70%;
+    align-items: center;
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    min-width: 40%;
+    align-items: center;
+    text-align: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
 `
 
 const Contacts = () => {
@@ -37,6 +60,7 @@ const Contacts = () => {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
+  const [responseText, setResponse] = useState("")
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -44,61 +68,65 @@ const Contacts = () => {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = () => {
-    console.log(formData)
+  async function handleSubmit() {
+    if (formData.email == "" || formData.message == "" || formData.name == "") {
+      return <Alert severity="error">Fill in all fields</Alert>
+    }
+    const response = await SendMessage(formData.name)
+    const result = await response
+    setResponse(result.message)
+    console.log(result.message)
     setIsSubmitted(true)
   }
 
   return (
-    <ContactsPage>
-      {!isSubmitted ? (
-        <>
-          <TextComponent text={"Only CTA on the page"} type={"h1"} />
-          <Form onSubmit={handleSubmit}>
-            <TextField
-              label="Name"
-              name="name"
-              variant="outlined"
-              fullWidth
-              value={formData.name}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-            <TextField
-              label="Email"
-              name="email"
-              type="email"
-              variant="outlined"
-              fullWidth
-              value={formData.email}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-            <TextField
-              label="Message"
-              name="message"
-              variant="outlined"
-              multiline
-              rows={4}
-              fullWidth
-              value={formData.message}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-            <Button text={"Submit"} type={"submit"} onClick={handleSubmit} />{" "}
-            {/* Передача обработчика */}
-          </Form>
-        </>
-      ) : (
-        <TextComponent text={"Thank you for your message!"} type={"h2"} />
-      )}
-    </ContactsPage>
+    <>
+      <ContactsPage>
+        {!isSubmitted ? (
+          <>
+            <TextComponent text={"Only CTA on the page"} type={"h1"} />
+            <Form onSubmit={handleSubmit}>
+              <label htmlFor="name">Name</label>
+              <TextField
+                id="name"
+                name="name"
+                variant="outlined"
+                fullWidth
+                value={formData.name}
+                onChange={handleChange}
+                InputLabelProps={{
+                  shrink: true
+                }}
+              />
+              <label htmlFor="email">Email</label>
+              <TextField
+                id="email"
+                name="email"
+                type="email"
+                variant="outlined"
+                fullWidth
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <label htmlFor="message">Message</label>
+              <TextField
+                id="message"
+                name="message"
+                variant="outlined"
+                multiline
+                rows={4}
+                fullWidth
+                value={formData.message}
+                onChange={handleChange}
+              />
+              <Button text={"Submit"} type={"submit"} onClick={handleSubmit} />{" "}
+            </Form>
+          </>
+        ) : (
+          <TextComponent text={responseText} type={"h1"} />
+        )}
+      </ContactsPage>
+    </>
   )
 }
 

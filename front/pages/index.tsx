@@ -1,9 +1,7 @@
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
 import styled from "styled-components"
-import TextComponent from "@/components/TextComponent"
 import Card from "@/components/Card"
 import Button from "@/components/Button"
+import PageHead from "@/components/PageHead"
 
 const breakpoints = {
   mobile: "768px",
@@ -14,13 +12,14 @@ const PageContainer = styled.div`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+  padding-top: 8vh;
+  padding-bottom: 7vh;
   width: 100%;
 `
 const MainContainer = styled.main`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  padding-top: 10vh;
   gap: 3vh 0vh;
   width: 100%;
 `
@@ -127,66 +126,60 @@ const AdsSection = styled.section`
 
 export default function Home() {
   return (
-    <PageContainer>
-      <MainContainer>
-        <BannerSection>
-          <BannerTextContainer>
-            <TextComponent
-              text={"Most important title on the page"}
-              type="h1"
-            ></TextComponent>
+    <>
+      <PageHead />
+      <PageContainer>
+        <MainContainer>
+          <BannerSection>
+            <BannerTextContainer>
+              <h1>Most important title on the page</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                mattis, leo et condimentum ultricies, sem urna convallis metus,
+                vel suscipit nibh lacus tincidunt ante
+              </p>
+            </BannerTextContainer>
+            {/* Banner Text */}
 
-            <TextComponent
-              text={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum ultricies, sem urna convallis metus, vel suscipit nibh lacus tincidunt ante"
-              }
-              type="p"
-            ></TextComponent>
-          </BannerTextContainer>
-          {/* Banner Text */}
+            <VideoContainer>
+              <BannerVideo
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Informative promotional video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              ></BannerVideo>
+            </VideoContainer>
+          </BannerSection>
 
-          <VideoContainer>
-            <BannerVideo
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></BannerVideo>
-          </VideoContainer>
-        </BannerSection>
+          {/* Banner */}
+          <CardSection>
+            <h1>Also very important title</h1>
+            {/* cards title */}
 
-        {/* Banner */}
-        <CardSection>
-          <TextComponent
-            text={"Also very important title"}
-            type={"h1"}
-          ></TextComponent>
-          {/* cards title */}
+            <CardContainer>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+            </CardContainer>
+            {/* cards */}
 
-          <CardContainer>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-          </CardContainer>
-          {/* cards */}
+            <Button type="contactUs" text="contact us"></Button>
+            {/* card button */}
+          </CardSection>
+          {/* Cards container*/}
 
-          <Button type="contactUs" text="contact us"></Button>
-          {/* card button */}
-        </CardSection>
-        {/* Cards container*/}
-
-        <AdsSection>
-          <TextComponent
-            text={"Less important title"}
-            type={"h1"}
-          ></TextComponent>
-          <Button type="contactUs" text="contact us"></Button>
-        </AdsSection>
-        {/* ads container */}
-      </MainContainer>
-      {/* Content container */}
-    </PageContainer>
+          <AdsSection>
+            <h1>Less important title</h1>
+            <Button type="contactUs" text="contact us"></Button>
+          </AdsSection>
+          {/* ads container */}
+        </MainContainer>
+        {/* Content container */}
+      </PageContainer>
+    </>
   )
 }

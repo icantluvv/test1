@@ -1,15 +1,14 @@
 import { Button as MUIButton } from "@mui/material"
 import { useRouter } from "next/navigation"
 import React from "react"
-import TextComponent from "./TextComponent"
 
 interface ButtonProps {
   text: string
   type: string
-  onClick?: () => void // Добавляем обработчик нажатия
+  onClick?: () => void
 }
 
-const Button = ({ text, type, onClick }: ButtonProps) => {
+const Button = ({ type, onClick }: ButtonProps) => {
   const router = useRouter()
 
   function goToContactPage() {
@@ -26,19 +25,23 @@ const Button = ({ text, type, onClick }: ButtonProps) => {
           sx={{
             borderRadius: "10px",
             backgroundColor: "#2C2C2C",
-            padding: "0rem 1.5rem",
+            padding: "0.5rem 1.5rem",
+            fontSize: "1rem",
+
             "@media (max-width: 1024px)": {
-              padding: "0rem 1rem"
+              fontSize: "1.25rem",
+              padding: "1rem 1rem"
             },
             "@media (max-width: 768px)": {
-              padding: "0em 0.8rem"
+              fontSize: "0.8rem",
+              padding: "0.5rem 0.8rem"
             },
             "&:hover": {
               backgroundColor: "#444"
             }
           }}
         >
-          <TextComponent text={text} type="button" />
+          contact us
         </MUIButton>
       )
     case "submit":
@@ -46,23 +49,26 @@ const Button = ({ text, type, onClick }: ButtonProps) => {
         <MUIButton
           variant="contained"
           color="primary"
-          onClick={onClick} // Используем переданный обработчик
+          onClick={onClick}
           sx={{
             borderRadius: "10px",
             backgroundColor: "#2C2C2C",
             padding: "0rem 1rem",
+            fontSize: "1rem",
             "@media (max-width: 1024px)": {
-              padding: "0rem 0rem"
+              padding: "0rem 0rem",
+              width: "100%"
             },
             "@media (max-width: 768px)": {
-              padding: "0em 0.4rem"
+              padding: "0em 0.4rem",
+              width: "100%"
             },
             "&:hover": {
               backgroundColor: "#444"
             }
           }}
         >
-          <TextComponent text={text} type="button" />
+          submit
         </MUIButton>
       )
 

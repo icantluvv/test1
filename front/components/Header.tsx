@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Button from "./Button"
-import TextComponent from "./TextComponent"
 import Link from "next/link"
 
 const HeaderContainer = styled.header`
@@ -9,7 +8,7 @@ const HeaderContainer = styled.header`
   background: white;
   box-sizing: border-box;
   width: 100%;
-  height: 10vh;
+  height: 8vh;
   border-bottom: 1px solid ${({ theme }) => theme.colors.darkGray};
   display: flex;
   justify-content: space-between;
@@ -21,7 +20,7 @@ const HeaderContainer = styled.header`
 const Header = () => (
   <HeaderContainer>
     <Link href={"/"}>
-      <TextComponent text={"Some Company"} type={"h2"}></TextComponent>
+      <h2>Some Company</h2>
     </Link>
     <Button type="contactUs" text="contact us"></Button>
   </HeaderContainer>
