@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
 const Header = () => (
   <HeaderContainer>
     <Link href={"/"}>
-      <h2>Some Company</h2>
+      <h3>Some Company</h3>
     </Link>
     <Button type="contactUs" text="contact us"></Button>
   </HeaderContainer>

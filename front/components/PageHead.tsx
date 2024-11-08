@@ -1,38 +1,36 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-const PageHead = () => {
+const PageHead = ({
+  title = "Default Title",
+  description = "Default description for the site",
+  keywords = "default, keywords",
+}) => {
   return (
     <Helmet>
-      <title>test panteleev Sergey</title>
-      <meta
-        name="description"
-        content="Тестовое задание выполненное Пантелеевым Сергеем"
-      />
-      <meta name="keywords" content="test, test, assignment, resume" />
+      <title>{title}</title>
+
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="test panteleev Sergey" />
-      <meta
-        property="og:description"
-        content="Тестовое задание выполненное Пантелеевым Сергеем"
-      />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
       <meta
         property="og:image"
-        content="https://www.w3schools.com/w3images/lights.jpg"
+        content="https://avatars.yandex.net/get-music-content/9867886/f33d360b.a.28514782-1/m1000x1000"
       />
-      <meta property="og:url" content="https://github.com/icantluvv" />
       <meta property="og:type" content="website" />
+
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="test panteleev Sergey" />
-      <meta
-        name="twitter:description"
-        content="Тестовое задание выполненное Пантелеевым Сергеем"
-      />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
-        content="https://www.w3schools.com/w3images/lights.jpg"
+        content="https://avatars.yandex.net/get-music-content/9867886/f33d360b.a.28514782-1/m1000x1000"
       />
+
       <link rel="icon" href="/path/to/favicon.ico" />
     </Helmet>
   )

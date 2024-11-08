@@ -13,7 +13,6 @@ const PageContainer = styled.div`
   box-sizing: border-box;
   flex-direction: column;
   padding-top: 8vh;
-  padding-bottom: 7vh;
   width: 100%;
 `
 const MainContainer = styled.main`
@@ -38,6 +37,7 @@ const BannerSection = styled.section`
 
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
+    gap: 2vh 0vh;
   }
 `
 
@@ -46,8 +46,11 @@ const BannerTextContainer = styled.div`
   flex-direction: column;
   width: 30%;
 
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 80%;
+  }
   @media (max-width: ${breakpoints.tablet}) {
-    width: 100%;
+    width: 90%;
   }
 `
 
@@ -100,7 +103,8 @@ const CardContainer = styled.div`
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
     align-items: center;
-    gap: 3vh 0vh;
+    gap: 10px 0vh;
+    margin-bottom: 0vh;
   }
 `
 
@@ -127,7 +131,11 @@ const AdsSection = styled.section`
 export default function Home() {
   return (
     <>
-      <PageHead />
+      <PageHead
+        title="Panteleev Test"
+        description="This is main page"
+        keywords="test task, next js, styled components"
+      />
       <PageContainer>
         <MainContainer>
           <BannerSection>
@@ -154,7 +162,7 @@ export default function Home() {
 
           {/* Banner */}
           <CardSection>
-            <h1>Also very important title</h1>
+            <h2>Also very important title</h2>
             {/* cards title */}
 
             <CardContainer>
@@ -173,7 +181,7 @@ export default function Home() {
           {/* Cards container*/}
 
           <AdsSection>
-            <h1>Less important title</h1>
+            <h2>Less important title</h2>
             <Button type="contactUs" text="contact us"></Button>
           </AdsSection>
           {/* ads container */}

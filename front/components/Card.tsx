@@ -22,12 +22,15 @@ const CardComponent = styled.div`
 `
 const CardText = styled.p`
   color: ${({ theme }) => theme.colors.darkGray};
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 80%;
+  }
 `
 
 const Card = () => {
   return (
     <CardComponent>
-      <h2>Title</h2>
+      <h3>Title</h3>
       <CardText>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis,
         leo et condimentum

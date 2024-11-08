@@ -2,10 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 const FooterComponent = styled.footer`
-  height: 7vh;
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  height: 8vh;
   background: white;
   display: flex;
   align-items: center;
@@ -16,7 +14,7 @@ const FooterComponent = styled.footer`
 const Footer = () => {
   return (
     <FooterComponent>
-      <h2>Some Company 2024</h2>
+      <h3>Some Company 2024</h3>
     </FooterComponent>
   )
 }

@@ -24,23 +24,23 @@ const GlobalStyle = createGlobalStyle`
     font-size: 3rem;
 
     @media (max-width: ${breakpoints.mobile}){
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     @media (min-width: 768px) and (max-width: ${breakpoints.tablet}) {
-      font-size: 4rem;
+      font-size: 5rem;
     }
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     
     @media (max-width: ${breakpoints.mobile}) {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
 
     @media (min-width: 768px) and (max-width: ${breakpoints.tablet}) {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
   }
@@ -53,7 +53,20 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-      font-size: 2.5rem;
+      font-size: 4rem;
+    }
+
+  }
+
+  h3 {
+    font-size: 1.5rem;
+     
+    @media (max-width: ${breakpoints.mobile}) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
+      font-size: 3rem;
     }
 
   }

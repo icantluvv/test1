@@ -49,19 +49,22 @@ const Button = ({ type, onClick }: ButtonProps) => {
         <MUIButton
           variant="contained"
           color="primary"
+          type="submit"
           onClick={onClick}
           sx={{
             borderRadius: "10px",
             backgroundColor: "#2C2C2C",
-            padding: "0rem 1rem",
+            padding: "0.5rem 1.5rem",
             fontSize: "1rem",
+            width: "100%",
+
             "@media (max-width: 1024px)": {
-              padding: "0rem 0rem",
-              width: "100%"
+              fontSize: "1.25rem",
+              padding: "1rem 1rem"
             },
             "@media (max-width: 768px)": {
-              padding: "0em 0.4rem",
-              width: "100%"
+              fontSize: "0.8rem",
+              padding: "0.5rem 0.8rem"
             },
             "&:hover": {
               backgroundColor: "#444"
