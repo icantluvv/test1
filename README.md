@@ -14,13 +14,12 @@ Back:
 Deploy:
   1. Project has been deployed with Yandex Compute Cloude (ubuntu OS, docker)
 
-Details:
-  1. Use Material UI tools 
-  2. Responsive pages
+Interesting details:
+  1. Use Material UI React tool kit
+  2. Responsive pages for all devices
   3. Comments inside components
+  4. Use Prettier at project
+  5. Use serverless solutions
 
 LINK FOR THE WEBSITE:
-
-
-
 
