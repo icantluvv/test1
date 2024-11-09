@@ -12,7 +12,7 @@ Back:
   1. Yandex Cloud Function as serverless solution for requests instead of REST API backend
      
 Deploy:
-  1. Project has been deployed with Yandex Compute Cloude (ubuntu OS, docker)
+  1. Project has been deployed with Yandex Compute Cloud (ubuntu OS, docker)
 
 Interesting details:
   1. Use Material UI React tool kit
