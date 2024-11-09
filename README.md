@@ -22,4 +22,4 @@ Interesting details:
   5. Use serverless solutions
 
 LINK FOR THE WEBSITE:
-
+http://84.201.168.78:3000/
