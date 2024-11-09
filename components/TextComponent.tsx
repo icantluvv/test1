@@ -47,3 +47,8 @@ const TextComponent = ({ text, type }: BigTitleProps) => {
 }
 
 export default TextComponent
+
+// Created this component for show one of the most usage method (for me) for resolving some interesting 
+// cases with recurring components that need different params or styles
+
+// not in this case but this method is part of Fabric dev pattern 

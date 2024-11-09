@@ -15,6 +15,8 @@ const PageHead = ({
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+      {/* Standart meta tag for SEO */}
+
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta
@@ -22,6 +24,9 @@ const PageHead = ({
         content="https://avatars.yandex.net/get-music-content/9867886/f33d360b.a.28514782-1/m1000x1000"
       />
       <meta property="og:type" content="website" />
+
+      {/* Open Graph meta tags for SEO */}
+
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
@@ -31,7 +36,11 @@ const PageHead = ({
         content="https://avatars.yandex.net/get-music-content/9867886/f33d360b.a.28514782-1/m1000x1000"
       />
 
+      {/* TWITTER meta tags for SEO */}
+
       <link rel="icon" href="/path/to/favicon.ico" />
+
+      {/* Some WebSite Image for browser bookmark and smth */}
     </Helmet>
   )
 }

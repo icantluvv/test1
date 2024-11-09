@@ -15,6 +15,7 @@ const PageContainer = styled.div`
   padding-top: 8vh;
   width: 100%;
 `
+
 const MainContainer = styled.main`
   display: flex;
   box-sizing: border-box;
@@ -136,6 +137,9 @@ export default function Home() {
         description="This is main page"
         keywords="test task, next js, styled components"
       />
+
+      {/* Some HEADS for SEO with props of main page*/}
+
       <PageContainer>
         <MainContainer>
           <BannerSection>
@@ -147,8 +151,6 @@ export default function Home() {
                 vel suscipit nibh lacus tincidunt ante
               </p>
             </BannerTextContainer>
-            {/* Banner Text */}
-
             <VideoContainer>
               <BannerVideo
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -159,12 +161,10 @@ export default function Home() {
               ></BannerVideo>
             </VideoContainer>
           </BannerSection>
+          {/* Main Banner with YT video and text*/}
 
-          {/* Banner */}
           <CardSection>
             <h2>Also very important title</h2>
-            {/* cards title */}
-
             <CardContainer>
               <Card></Card>
               <Card></Card>
@@ -173,20 +173,16 @@ export default function Home() {
               <Card></Card>
               <Card></Card>
             </CardContainer>
-            {/* cards */}
-
             <Button type="contactUs" text="contact us"></Button>
-            {/* card button */}
           </CardSection>
-          {/* Cards container*/}
+          {/* Cards Section */}
 
           <AdsSection>
             <h2>Less important title</h2>
             <Button type="contactUs" text="contact us"></Button>
           </AdsSection>
-          {/* ads container */}
+          {/* PreFooter section, I called it ads container cause sometimes it really is one  */}
         </MainContainer>
-        {/* Content container */}
       </PageContainer>
     </>
   )
